@@ -1,5 +1,24 @@
 #!/bin/bash
 
-### This script is called after the user uninstalls the application.
+# 日志处理函数
+log_message() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') [UNINSTALL_INIT] $1"
+}
+
+# 打印专属环境变量
+log_message "=== 环境变量信息 ==="
+log_message "应用名称: ${TRIM_APPNAME:-未设置}"
+log_message "应用版本: ${TRIM_APPVER:-未设置}"
+log_message "当前状态: ${TRIM_APP_STATUS:-未设置}"
+log_message "执行用户: ${TRIM_RUN_USERNAME:-未设置} (UID: ${TRIM_RUN_UID:-未设置})"
+log_message "=== 卸载相关专属变量 ==="
+log_message "应用目录: ${TRIM_APPDEST:-未设置}"
+log_message "配置目录: ${TRIM_PKGETC:-未设置}"
+log_message "数据目录: ${TRIM_PKGVAR:-未设置}"
+log_message "临时目录: ${TRIM_PKGTMP:-未设置}"
+log_message "用户数据目录: ${TRIM_PKGHOME:-未设置}"
+log_message "=================="
+
+log_message "此脚本在用户卸载应用程序前被调用"
 
 exit 0

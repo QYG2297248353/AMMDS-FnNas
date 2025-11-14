@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# 日志处理函数
+log_message() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') [MAIN] $1"
+}
+
+# 打印专属环境变量
+log_message "=== 环境变量信息 ==="
+log_message "应用名称: ${TRIM_APPNAME:-未设置}"
+log_message "应用版本: ${TRIM_APPVER:-未设置}"
+log_message "当前状态: ${TRIM_APP_STATUS:-未设置}"
+log_message "执行用户: ${TRIM_RUN_USERNAME:-未设置} (UID: ${TRIM_RUN_UID:-未设置})"
+log_message "=== 运行相关专属变量 ==="
+log_message "应用目录: ${TRIM_APPDEST:-未设置}"
+log_message "配置目录: ${TRIM_PKGETC:-未设置}"
+log_message "数据目录: ${TRIM_PKGVAR:-未设置}"
+log_message "服务端口: ${TRIM_SERVICE_PORT:-未设置}"
+log_message "=================="
+
 FILE_PATH="${TRIM_APPDEST}/docker/docker-compose.yaml"
 
 is_docker_running () {
@@ -7,7 +25,7 @@ is_docker_running () {
 
     if [ -f "$FILE_PATH" ]; then
         DOCKER_NAME=$(cat $FILE_PATH | grep "container_name" | awk -F ':' '{print $2}' | xargs)
-        echo "DOCKER_NAME is set to: $DOCKER_NAME"
+        log_message "DOCKER_NAME is set to: $DOCKER_NAME"
     fi
 
     if [ -n "$DOCKER_NAME" ]; then
@@ -20,23 +38,29 @@ case $1 in
 start)
     # run start command. exit 0 if success, exit 1 if failed
     # do nothing, docker application will be started by appcenter
+    log_message "收到启动命令"
     exit 0
     ;;
 stop)
     # run stop command. exit 0 if success, exit 1 if failed
     # do nothing, docker application will be stopped by appcenter
+    log_message "收到停止命令"
     exit 0
     ;;
 status)
     # check application status command. exit 0 if running, exit 3 if not running
     # check first container by default, you cound modify it by yourself 
+    log_message "检查应用状态"
     if is_docker_running; then
+        log_message "应用正在运行"
         exit 0
     else
+        log_message "应用未运行"
         exit 3
     fi
     ;;
 *)
+    log_message "未知命令: $1"
     exit 1
     ;;
 esac
