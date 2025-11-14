@@ -2,16 +2,4 @@
 
 ### This script is called after the user uninstalls the application.
 
-ammds_data_action="$ammds_data_action"
-
-echo "[AMMDS] 数据保留选项: $ammds_data_action"
-
-# 根据用户选择执行相应逻辑
-if [ "$ammds_data_action" = "delete" ]; then
-    echo "[AMMDS] 删除数据目录：$TRIM_PKGVAR"
-    rm -rf ${TRIM_PKGVAR}
-else
-    echo "[AMMDS] 保留数据目录：$TRIM_PKGVAR"
-fi
-
 exit 0

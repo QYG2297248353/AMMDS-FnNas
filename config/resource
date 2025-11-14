@@ -1,4 +1,12 @@
 {
+    "docker-project": {
+        "projects": [
+            {
+                "name": "ammds",
+                "path": "docker"
+            }
+        ]
+    },
     "data-share": {
         "shares": [
             {
@@ -16,14 +24,22 @@
                         "docker-ammds"
                     ]
                 }
-            }
-        ]
-    },
-    "docker-project": {
-        "projects": [
+            },
             {
-                "name": "ammds-app",
-                "path": "docker"
+                "name": "ammds/db",
+                "permission": {
+                    "rw": [
+                        "docker-ammds"
+                    ]
+                }
+            },
+            {
+                "name": "ammds/download",
+                "permission": {
+                    "rw": [
+                        "docker-ammds"
+                    ]
+                }
             }
         ]
     }

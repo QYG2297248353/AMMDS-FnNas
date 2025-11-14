@@ -1,6 +1,7 @@
 {
-    "defaults": {
-        "run-as": "root"
+    "defaults":
+    {
+        "run-as": "package"
     },
     "username": "docker-ammds",
     "groupname": "docker-ammds"
