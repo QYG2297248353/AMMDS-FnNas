@@ -1,0 +1,30 @@
+{
+    "data-share": {
+        "shares": [
+            {
+                "name": "ammds",
+                "permission": {
+                    "rw": [
+                        "docker-ammds"
+                    ]
+                }
+            },
+            {
+                "name": "ammds/data",
+                "permission": {
+                    "rw": [
+                        "docker-ammds"
+                    ]
+                }
+            }
+        ]
+    },
+    "docker-project": {
+        "projects": [
+            {
+                "name": "ammds-app",
+                "path": "docker"
+            }
+        ]
+    }
+}

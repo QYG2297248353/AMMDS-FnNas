@@ -1,0 +1,13 @@
+services:
+  ammds:
+    image: qyg2297248353/ammds:latest
+    container_name: AMMDS
+    ports:
+      - "9523:80"
+    volumes:
+      - $TRIM_PKGHOME/data:/ammds/data
+      - $TRIM_PKGHOME/db:/ammds/db
+      - $TRIM_PKGHOME/download:/ammds/download
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
