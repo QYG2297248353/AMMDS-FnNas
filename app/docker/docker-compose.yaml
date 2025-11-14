@@ -5,12 +5,13 @@ services:
     image: qyg2297248353/ammds:v1.6.31
     container_name: ammds
     ports:
-      - "${TRIM_SERVICE_PORT}:80"
+      - "${ammds_app_port}:80"
     volumes:
-      - ${TRIM_APPDEST_VOL}/ammds/data:/ammds/data
-      - ${TRIM_APPDEST_VOL}/ammds/db:/ammds/db
-      - ${TRIM_APPDEST_VOL}/ammds/download:/ammds/download
+      - ${TRIM_APPDEST_VOL}/@appshare/ammds/data:/ammds/data
+      - ${TRIM_APPDEST_VOL}/@appshare/ammds/db:/ammds/db
+      - ${TRIM_APPDEST_VOL}/@appshare/ammds/download:/ammds/download
     restart: always
     environment:
       - TZ=Asia/Shanghai
+      - ADMIN_PASS=${ammds_admin_password}
   

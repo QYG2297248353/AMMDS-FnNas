@@ -1,34 +1,10 @@
 [
     {
-        "stepTitle": "欢迎安装",
+        "stepTitle": "修改管理员密码",
         "items": [
             {
                 "type": "tips",
-                "helpText": "欢迎使用我们的应用！在开始使用前，请阅读并同意我们的服务条款。"
-            },
-            {
-                "type": "tips",
-                "helpText": "请阅读 <a target=\"_blank\" href=\"https://ammds.lifebus.top/agreement/UserPrivacyAgreement.html\">隐私协议</a>。"
-            },
-            {
-                "type": "switch",
-                "field": "ammds_agree_terms",
-                "label": "我已阅读并同意服务条款",
-                "rules": [
-                    {
-                        "required": true,
-                        "message": "请同意服务条款"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "stepTitle": "创建管理员账号",
-        "items": [
-            {
-                "type": "tips",
-                "helpText": "默认管理员用户名为 ammds"
+                "helpText": "默认管理员用户名为\t\tammds"
             },
             {
                 "type": "password",
@@ -74,6 +50,25 @@
                     {
                         "pattern": "^[0-9]+$",
                         "message": "端口号必须是数字"
+                    }
+                ]
+            },
+            {
+                "type": "tips",
+                "helpText": "欢迎使用我们的应用！在开始使用前，请阅读并同意我们的服务条款。"
+            },
+            {
+                "type": "tips",
+                "helpText": "请阅读 <a target=\"_blank\" href=\"https://ammds.lifebus.top/agreement/UserPrivacyAgreement.html\">用户隐私保护协议</a>。"
+            },
+            {
+                "type": "switch",
+                "field": "wizard_agree_terms",
+                "label": "我已阅读并同意服务条款",
+                "rules": [
+                    {
+                        "required": true,
+                        "message": "请同意服务条款"
                     }
                 ]
             }
