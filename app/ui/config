@@ -1,7 +1,7 @@
 {
     ".url": {
         "ammds.Application": {
-            "title": "ammds",
+            "title": "AMMDS",
             "icon": "images/ICON_{0}.PNG",
             "type": "iframe",
             "protocol": "http",
