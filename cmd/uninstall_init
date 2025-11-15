@@ -14,6 +14,8 @@ log_message() {
 
 # 基础信息
 log_message "==============卸载开始=============="
+log_message "[系统] 运行用户: ${TRIM_RUN_USERNAME:-未设置}"
+log_message "[系统] 专用用户: ${TRIM_USERNAME:-未设置}"
 log_message "===================================="
 log_message "[应用] 名称: ${TRIM_APPNAME:-未设置}"
 log_message "[应用] 版本: ${TRIM_APPVER:-未设置}"
